@@ -1,5 +1,5 @@
 import json
-
+import os
 
 def search_in_file(file_path, pattern):
     with open(file_path, 'r') as file:
@@ -45,5 +45,11 @@ class Storage:
 
 
 if __name__ == '__main__':
-    search_in_file('path/to/file', 'pattern')
-    add_from_json('path/to/file', ('a', 'b', 'c'))
+    lines = ['first_line\n', 'second_line\n', 'third_line\n']
+    with open('homework_7/tests/file', 'w') as file:
+        file.writelines(lines)
+
+    search_in_file('homework_7/tests/file', 'pattern')
+    add_from_json('homework_7/tests/file', ('a', 'b', 'c'))
+
+    os.remove('homework_7/tests/file')
