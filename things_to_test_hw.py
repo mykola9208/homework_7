@@ -45,11 +45,9 @@ class Storage:
 
 
 if __name__ == '__main__':
-    lines = ['first_line\n', 'second_line\n', 'third_line\n']
-    with open('homework_7/tests/file', 'w') as file:
-        file.writelines(lines)
-
-    search_in_file('homework_7/tests/file', 'pattern')
-    add_from_json('homework_7/tests/file', ('a', 'b', 'c'))
-
-    os.remove('homework_7/tests/file')
+    lines = ['first_line\n', 'second_lin\n', 'third_line\n']
+    with open('D:\programs\homework_7\\test', 'w') as file:
+        for line in lines:
+            file.write(line)
+    print(search_in_file('D:\programs\homework_7\\test', 'lin'))
+    os.remove('D:\programs\homework_7\\test')
