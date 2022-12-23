@@ -1,6 +1,7 @@
 import json
 import os
 
+
 def search_in_file(file_path, pattern):
     with open(file_path, 'r') as file:
         return [line for line in file if pattern in line]
@@ -45,9 +46,8 @@ class Storage:
 
 
 if __name__ == '__main__':
-    lines = ['first_line\n', 'second_lin\n', 'third_line\n']
+    data = {'a': 3, 'b': 4}
     with open('D:\programs\homework_7\\test', 'w') as file:
-        for line in lines:
-            file.write(line)
-    print(search_in_file('D:\programs\homework_7\\test', ))
+        json.dump(data, file)
+    print(add_from_json('D:\programs\homework_7\\test', 3))
     os.remove('D:\programs\homework_7\\test')
