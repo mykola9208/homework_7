@@ -20,15 +20,17 @@ class TestJson(unittest.TestCase):
         self.assertEqual(add_from_json('D:\programs\homework_7\\test', 'b'), 4)
         self.assertEqual(add_from_json('D:\programs\homework_7\\test', 'ab'), 7)
 
-    def test_negative(self):
+    def test_negative_file(self):
         with self.assertRaises(FileNotFoundError) as exc:
             add_from_json('D:\programs\homework_7\\tes', 'lin')
         self.assertEqual(exc.exception.args, (2, 'No such file or directory'))
 
+    def test_negative_type(self):
         with self.assertRaises(TypeError) as exc:
             add_from_json('D:\programs\homework_7\\test', 35)
         self.assertEqual(exc.exception.args, ("'int' object is not iterable",))
 
+    def test_negative_key(self):
         with self.assertRaises(KeyError) as exc:
             add_from_json('D:\programs\homework_7\\test', 'abc')
         self.assertEqual(exc.exception.args, ('c',))

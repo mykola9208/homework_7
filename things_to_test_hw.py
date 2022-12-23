@@ -44,5 +44,3 @@ class Storage:
         self._data[table_name]['data'].extend(items)
 
 
-if __name__ == '__main__':
-    table = Storage()

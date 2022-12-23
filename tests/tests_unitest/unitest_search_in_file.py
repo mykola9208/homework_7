@@ -22,11 +22,12 @@ class TestSearch(unittest.TestCase):
         self.assertEqual(search_in_file('D:\programs\homework_7\\test', 'first'), ['first_line\n'])
         self.assertEqual(search_in_file('D:\programs\homework_7\\test', 'fourth'), [])
 
-    def test_negative(self):
+    def test_negative_file(self):
         with self.assertRaises(FileNotFoundError) as exc:
             search_in_file('D:\programs\homework_7\\tes', 'lin')
         self.assertEqual(exc.exception.args, (2, 'No such file or directory'))
 
+    def test_negative_type(self):
         with self.assertRaises(TypeError) as exc:
             search_in_file('D:\programs\homework_7\\test', 35)
         self.assertEqual(exc.exception.args, ("'in <string>' requires string as left operand, not int",))
