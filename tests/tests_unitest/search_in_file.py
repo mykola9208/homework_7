@@ -17,6 +17,15 @@ class TestSearch(unittest.TestCase):
 
     def test_positive(self):
         self.assertEqual(search_in_file('D:\programs\homework_7\\test', 'lin'), ['first_line\n', 'second_lin\n', 'third_line\n'])
-        self.assertEqual(search_in_file('D:\programs\homework_7\\test', 'line'), ['first_line\n', 'second_lin\n', 'third_line\n'])
-        self.assertEqual(search_in_file('D:\programs\homework_7\\test', 'first'), ['first_line\n', 'second_lin\n', 'third_line\n'])
-        self.assertEqual(search_in_file('D:\programs\homework_7\\test', 'fourth'), ['first_line\n', 'second_lin\n', 'third_line\n'])
+        self.assertEqual(search_in_file('D:\programs\homework_7\\test', 'line'), ['first_line\n', 'third_line\n'])
+        self.assertEqual(search_in_file('D:\programs\homework_7\\test', 'first'), ['first_line\n'])
+        self.assertEqual(search_in_file('D:\programs\homework_7\\test', 'fourth'), [])
+
+    def test_negaive(self):
+        with self.assertRaises(FileNotFoundError) as exc:
+            search_in_file('D:\programs\homework_7\\tes', 'lin')
+
+        self.assertEqual(exc.exception.args, (2, 'No such file or directory'))
+        with self.assertRaises(TypeError) as exc:
+            search_in_file('D:\programs\homework_7\\test', 35)
+        self.assertEqual(exc.exception.args, ("'in <string>' requires string as left operand, not int",))

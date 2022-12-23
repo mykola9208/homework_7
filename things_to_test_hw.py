@@ -49,5 +49,5 @@ if __name__ == '__main__':
     with open('D:\programs\homework_7\\test', 'w') as file:
         for line in lines:
             file.write(line)
-    print(search_in_file('D:\programs\homework_7\\test', 'lin'))
+    print(search_in_file('D:\programs\homework_7\\test', ))
     os.remove('D:\programs\homework_7\\test')
