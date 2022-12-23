@@ -45,9 +45,3 @@ class Storage:
         else:
             raise ValueError('no such a table')
 
-
-if __name__ == '__main__':
-    string = Storage()
-    string.add_table('string', str)
-    string.add_to_table('string', 's')
-    print(string.get_from_table('string'))
