@@ -46,6 +46,3 @@ class Storage:
 
 if __name__ == '__main__':
     table = Storage()
-    table.add_table('first', 'str')
-    table.add_to_table('first', 'a')
-    print(table._data)
