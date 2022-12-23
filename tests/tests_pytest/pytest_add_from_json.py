@@ -4,7 +4,7 @@ import json
 from things_to_test_hw import add_from_json
 
 
-class TestSearch(unittest.TestCase):
+class TestJson(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         data = {'a': 3, 'b': 4}
