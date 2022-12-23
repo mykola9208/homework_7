@@ -1,4 +1,6 @@
 import json
+
+
 def search_in_file(file_path, pattern):
     with open(file_path, 'r') as file:
         return [line for line in file if pattern in line]
@@ -41,3 +43,9 @@ class Storage:
 
         self._data[table_name]['data'].extend(items)
 
+
+if __name__ == '__main__':
+    table = Storage()
+    table.add_table('first', 'str')
+    table.add_to_table('first', 'a')
+    print(table._data)
